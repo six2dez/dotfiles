@@ -7,13 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 ####unlock
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh dir docker_machine rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs history time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
+ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -153,6 +147,8 @@ alias wget='wget -c '
 alias pass_gen='pwgen 10 -c -n -B -v -1 | cracklib-check'
 alias update_dbeaver='cd ~/Descargas && wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb && sudo dpkg -i dbeaver-ce_latest_amd64.deb'
 alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias services_running='systemctl list-units --type=service --state=running'
+alias lsla='colorls -lA --sd --gs --group-directories-first'
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -200,3 +196,7 @@ unsetopt correct_all
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
